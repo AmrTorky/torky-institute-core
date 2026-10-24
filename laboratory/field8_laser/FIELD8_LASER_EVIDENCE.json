@@ -1,0 +1,10 @@
+{
+  "status": "SEALED_CONSERVED",
+  "field_track": "FIELD_8_LASER_WAKEFIELD",
+  "iterations_executed": 50000,
+  "mean_latency_us": 9.6929,
+  "p99_tail_latency_us": 31.202,
+  "execution_jitter_us": 21.5091,
+  "max_field_invariant_drift": 0.00054133,
+  "numerical_convergence": "EXACT_DOUBLE_PRECISION_IEEE_754"
+}

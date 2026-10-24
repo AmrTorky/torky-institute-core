@@ -1,0 +1,10 @@
+{
+  "status": "SEALED_CONSERVED",
+  "field_track": "FIELD_7_WAKEFIELD_PLASMA",
+  "iterations_executed": 50000,
+  "mean_latency_us": 5.376,
+  "p99_tail_latency_us": 21.702,
+  "execution_jitter_us": 16.326,
+  "max_field_invariant_drift": 6.599e-09,
+  "numerical_convergence": "EXACT_DOUBLE_PRECISION_IEEE_754"
+}

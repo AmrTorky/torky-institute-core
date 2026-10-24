@@ -1,0 +1,5 @@
+{
+  "status": "SEALED_CONSERVED",
+  "peak_ram_allocation_mib": 487.12,
+  "ram_ceiling_fence": "UNDER_500_MIB_STABLE"
+}

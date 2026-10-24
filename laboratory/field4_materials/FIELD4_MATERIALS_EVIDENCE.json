@@ -1,0 +1,7 @@
+{
+  "status": "SEALED_CONSERVED",
+  "field": "FIELD_4_MATERIALS",
+  "mean_latency_us": 6.1569,
+  "p99_latency_us": 24.503,
+  "max_drift": 5.5014e-07
+}

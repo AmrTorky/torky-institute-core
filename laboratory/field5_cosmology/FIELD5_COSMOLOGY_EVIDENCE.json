@@ -1,0 +1,7 @@
+{
+  "status": "SEALED_CONSERVED",
+  "field": "FIELD_5_COSMOLOGY",
+  "mean_latency_us": 14.9428,
+  "p99_latency_us": 45.605,
+  "max_drift": 0.0
+}

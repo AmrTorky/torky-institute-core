@@ -10,7 +10,7 @@ def run_audit():
         latencies.append((time.perf_counter_ns() - t0) / 1000.0)
     latencies.sort()
     mean_l, p99_l = sum(latencies)/50000, latencies[49500]
-    drift = abs(kretschmann[0] - 11718750.0)
+    drift = abs(np.max(kretschmann) - 11718750.0)
     with open("FIELD5_COSMOLOGY_EVIDENCE.json", "w") as f:
         json.dump({"status":"SEALED_CONSERVED", "field":"FIELD_5_COSMOLOGY", "mean_latency_us":round(mean_l,4), "p99_latency_us":round(p99_l,4), "max_drift":float(f"{drift:.4e}")}, f, indent=2)
     print(f"    ✓ Mean: {mean_l:.4f} µs | P99: {p99_l:.4f} µs | Drift: {drift:.4e}")

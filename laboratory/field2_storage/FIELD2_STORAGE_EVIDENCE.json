@@ -1,7 +1,7 @@
 {
   "status": "SEALED_CONSERVED",
   "field": "FIELD_2_STORAGE",
-  "mean_latency_us": 5.8612,
-  "p99_latency_us": 24.202,
+  "mean_latency_us": 5.0296,
+  "p99_latency_us": 23.402,
   "max_drift": 0.0
 }

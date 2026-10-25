@@ -1,0 +1,40 @@
+name: Automated WebAssembly Compilation & Audit Pipeline
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'src/**'
+      - '.github/workflows/compile-wasm.yml'
+  workflow_dispatch:
+
+jobs:
+  build-wasm:
+    name: Compile C++ to WebAssembly
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Independent Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Emscripten SDK Toolchain
+        uses: mymindstorm/setup-emsdk@v14
+        with:
+          version: '3.1.51'
+
+      - name: Verify Emscripten Compiler Environment
+        run: emcc -v
+
+      - name: Build High-Performance WebAssembly Binaries
+        run: |
+          mkdir -p dist
+          emcc -O3 src/torky_core.cpp -o dist/torky_core.js \
+            -s WASM=1 \
+            -s ALLOW_MEMORY_GROWTH=1 \
+            -s MODULARIZE=1 \
+            -s EXPORT_NAME="TorkyEngineModule" \
+            --bind
+
+      - name: Upload Secured Production Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: torky-wasm-dist
+          path: dist/

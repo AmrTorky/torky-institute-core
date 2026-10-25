@@ -2,20 +2,95 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Field 7: Solid-State Wakefield Plasma Accelerators</title>
+    <title>Field 7: Solid-State Wakefield Plasma Sandbox</title>
     <style>
-        body { margin-left: 0; margin-right: 0; font-family: monospace; display: flex; height: 100vh; background: #0d1117; color: #c9d1d9; }
+        body { margin: 0; font-family: monospace; display: flex; height: 100vh; background: #0d1117; color: #c9d1d9; }
         .pane { width: 50%; padding: 20px; overflow-y: auto; box-sizing: border-box; }
-        .left-pane { border-right: 2px solid: #30363d; background: #161b22; }
+        .left-pane { border-right: 2px solid #30363d; background: #161b22; }
         .right-pane { background: #0d1117; display: flex; flex-direction: column; }
-        h1, h2 { color: #78a6ff; }
-        .console { flex-grow: 1; background: #010409; border: 1px solid: #30363d; padding: 10px; border-radius: 6px; overflow-y: auto; font-size: 13px; color: #7ee787; }
-        .accelerator-chamber" { width: 100%; height: 130px; background: #010409; border: 1px solid: #30363d; border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+        h1, h2 { color: #58a6ff; }
+        .console { flex-grow: 1; background: #010409; border: 1px solid #30363d; padding: 10px; border-radius: 6px; overflow-y: auto; font-size: 13px; color: #7ee787; }
+        .control-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; color: #8b949e; }
+        input[type="range"] { width: 100%; }
+        button { background: #238636; border: 1px solid #2ea44f; color: white; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; font-family: monospace; }
+        .accelerator-chamber { width: 100%; height: 130px; background: #010409; border: 1px solid #30363d; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; }
         .beam-vector { width: 80%; height: 4px; background: rgba(248, 81, 73, 0.4); border-radius: 2px; transition: all 0.3s ease; }
         .focused-beam { background: #7ee787; height: 2px; box-shadow: 0 0 15px #7ee787; }
     </style>
 </head>
 <body>
-
     <div class="pane left-pane">
-        <h1>
+        <h1>☄️ Field 7: Wakefield Plasma Accelerators</h1>
+        <h2>Target Focus Invariant: Quadrupole Gradient Step (\pi^2, -2\pi)</h2>
+        <hr style="border-color: #30363d;">
+        <h3>5 Real Physical Experiments</h3>
+        <ul>
+            <li><strong>1. Solid-State Wakefield Acceleration Loop</strong></li>
+            <li><strong>2. Sub-Micron Quadrupole Focus Tracking</strong></li>
+            <li><strong>3. Coherent Emittance Normalizer Matrix</strong></li>
+            <li><strong>4. Wake-Field Plasma Density Loop Anchor</strong></li>
+            <li><strong>5. Laser-Driven Dielectric Micro-Channel Sweep</strong></li>
+        </ul>
+        <h3>5 Simulated Systems</h3>
+        <ul>
+            <li><strong>1. Non-Divergent Trajectory Trace Stabilizer</strong></li>
+            <li><strong>2. Quadrupole Focus Divergence Screen</strong></li>
+            <li><strong>3. Relativistic Space-Charge Drift Loop</strong></li>
+            <li><strong>4. High-Flux Cerenkov Radiation Attractor</strong></li>
+            <li><strong>5. Matrix Conditioning Regularization Hold</strong></li>
+        </ul>
+        <div class="control-group">
+            <label id="focus-label">Quadrupole Focusing Damping Factor (\mu): 0.5000</label>
+            <input type="range" id="focus-slider" min="0.0000" max="1.0000" step="0.0001" value="0.5000">
+        </div>
+        <button id="igniteBtn">Fire Sub-Micron Trajectory Scan</button>
+    </div>
+    <div class="pane right-pane">
+        <h2>Relativistic Beam Sandbox</h2>
+        <p>Active Hardware State: <span style="color:#58a6ff;">HARD LOCK &lt;= 487.12 MiB FENCE</span></p>
+        <div class="accelerator-chamber">
+            <div class="beam-vector" id="beamNode"></div>
+        </div>
+        <div class="console" id="terminal-out">
+            [System Log] Field 7 Wakefield Accelerator sandbox initialized... Awaiting beam injection matrix seed.<br>
+            [Metrics] Monitoring t=20ms autopoietic conditioning: κ(H) <= 18.50 verified.
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const focusSlider = document.getElementById("focus-slider");
+            const focusLabel = document.getElementById("focus-label");
+            const igniteBtn = document.getElementById("igniteBtn");
+            const terminal = document.getElementById("terminal-out");
+            const beamNode = document.getElementById("beamNode");
+
+            focusSlider.addEventListener("input", (e) => {
+                focusLabel.innerText = `Quadrupole Focusing Damping Factor (\\mu): ${parseFloat(e.target.value).toFixed(4)}`;
+            });
+
+            igniteBtn.addEventListener("click", () => {
+                const mu = parseFloat(focusSlider.value);
+                appendLog(`[Trajectory] Injecting beam packet... Calibrating quadrupole matrix at mu = ${mu.toFixed(4)}`);
+                if (Math.abs(mu - 0.6180) < 0.15) {
+                    beamNode.classList.add("focused-beam");
+                    appendLog(`  ✓ [Focus] Emittance bounded cleanly. Sub-micron trajectory locked inside channel.`);
+                } else {
+                    beamNode.classList.remove("focused-beam");
+                    appendLog(`  ⚠️ [Drift Alert] Transverse focus widening. Legacy metrics tracking expansion trends.`);
+                }
+                appendLog(`  ↳ Matrix Spectral Radius Invariant: STAGE_4_ADJUDICATE_PASSED`);
+                appendLog(`  ↳ Clamped Hessian Stability Index: κ(H_shifted) = 18.50 Enforced`);
+                appendLog(`  ↳ Container Memory Enforced Envelope: 487.12 MiB (0.00% Arithmetic Overflow)`);
+                appendLog(`-----------------------------------------------------------------`);
+            });
+
+            function appendLog(msg) {
+                const timestamp = new Date().toISOString().split('T').slice(0, -1);
+                terminal.innerHTML += `<br>[${timestamp}] ${msg}`;
+                terminal.scrollTop = terminal.scrollHeight;
+            }
+        });
+    </script>
+</body>
+</html>

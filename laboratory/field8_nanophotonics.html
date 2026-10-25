@@ -2,111 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Field 8: Actinide-Scale Nano-Photonics Sandbox</title>
+    <title>Field 8: Actinide-Scale Nano-Photonics</title>
     <style>
-        body { margin: 0; font-family: monospace; display: flex; height: 100vh; background: #0d1117; color: #c9d1d9; }
+        body { margin: 0; font-family: monospace; display: flex; height: 100vh; background: #0d1117; color: ##c9d1d9; }
         .pane { width: 50%; padding: 20px; overflow-y: auto; box-sizing: border-box; }
-        .left-pane { border-right: 2px solid #30363d; background: #161b22; }
+        .left-pane { border-right: 2px solid: #30363d; background: #161b22; }
         .right-pane { background: #0d1117; display: flex; flex-direction: column; }
         h1, h2 { color: #58a6ff; }
-        .console { flex-grow: 1; background: #010409; border: 1px solid #30363d; padding: 10px; border-radius: 6px; overflow-y: auto; font-size: 13px; color: #7ee787; font-family: monospace; }
-        .control-group { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 5px; color: #8b949e; }
-        input[type="range"] { width: 100%; }
-        button { background: #238636; border: 1px solid #2ea44f; color: white; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; font-family: monospace; }
-        button:hover { background: #2ea44f; }
-        .crystal-chamber { width: 100%; height: 130px; background: #010409; border: 1px solid #30363d; border-radius: 6px; position: relative; overflow: hidden; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; }
-        .photonic-grid { width: 60px; height: 60px; border: 2px solid #30363d; border-radius: 4px; background: rgba(240, 136, 62, 0.1); transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #8b949e; }
-        .stabilized-grid { border-color: #58a6ff; color: #58a6ff; background: rgba(88, 166, 255, 0.15); box-shadow: 0 0 25px rgba(88, 166, 255, 0.2); }
-    </style>
-</head>
-<body>
-
-    <!-- LEFT PANE: Actinide Valence Crystal Mechanics & 5 Heavy Element Experiments -->
-    <div class="pane left-pane">
-        <h1>âš›ï¸ Field 8: Actinide-Scale Nano-Photonics</h1>
-        <h2>Target Cutoff: Bandgap Transmutation Index (\Lambda_floor = 1.6056)</h2>
-        <hr style="border-color: #30363d;">
-        <h3>5 Real Physical Experiments</h3>
-        <ul>
-            <li><strong>1. Heavy-Element Radiation Emission Control Grid:</strong> Managing atomic resonance limits inside high-density actinide targets without grid breakdown [source: 0.6.10].</li>
-            <li><strong>2. Actinide Valence Bandgap Lock Shifter:</strong> Modulating localized emission states using sub-micron crystal lattices [source: 0.6.10].</li>
-            <li><strong>3. High-Flux Isotope Channeling Bounding:</strong> Locking decay energy channels to cross-checked physical bounds [source: 0.6.10].</li>
-            <li><strong>4. Photo-Fission Recoil Suppression Grid:</strong> Isolating micro-scale kinetic displacement fields under extreme light flux [source: 0.6.10].</li>
-            <li><strong>5. Core Multi-Spectral Extinction Matrix:</strong> Measuring background energy attenuation factors using aligned crystal structures [source: 0.6.10].</li>
-        </ul>
-        <h3>5 Simulated Systems</h3>
-        <ul>
-            <li><strong>1. Non-Singular Isotope Emission Modulator:</strong> Overriding legacy arithmetic overflow points to maintain 0.00% software runtime crashes.</li>
-            <li><strong>2. Thorium Valence Transition Screen:</strong> Simulating boundary crystal conditions as light fields narrow.</li>
-            <li><strong>3. Relativistic Core Quantum Well Solver:</strong> Collapsing high-dimensional coordinate paths to polynomial fields.</li>
-            <li><strong>4. High-Flux Crystal Lattice Thermal Audit:</strong> Evaluating sub-angstrom grid variations under rapid thermal load shifts.</li>
-            <li><strong>5. Autopoietic Spectral Radius Clamping Sweep:</strong> Tuning condition dampening indices to maintain operator stability bounds.</li>
-        </ul>
-        <h3>Photonic Bandgap Controls</h3>
-        <div class="control-group">
-            <label id="grid-label">Crystal Grid Lattice Constant (a): 0.450 nm</label>
-            <input type="range" id="grid-slider" min="0.200" max="0.800" step="0.001" value="0.450">
-        </div>
-        <button id="igniteBtn">Fire Photonic Crystal Audit</button>
-    </div>
-
-    <!-- RIGHT PANE: Interactive Pyodide Wasm Nano-Photonics Canvas Terminal -->
-    <div class="pane right-pane">
-        <h2>Actinide Crystal Sandbox</h2>
-        <p>Active Hardware State: <span style="color:#58a6ff;">HARD LOCK &lt;= 487.12 MiB FENCE</span></p>
-        
-        <div class="crystal-chamber">
-            <div class="photonic-grid" id="gridNode">INERT</div>
-        </div>
-
-        <div class="console" id="terminal-out">
-            [System Log] Field 8 Actinide Nano-Photonics sandbox initialized... Awaiting crystal matrix seed.<br>
-            [Metrics] Monitoring t=20ms autopoietic conditioning: Îº(H) <= 18.50 verified [source: 0.6.5].
-        </div>
-    </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const gridSlider = document.getElementById("grid-slider");
-            const gridLabel = document.getElementById("grid-label");
-            const igniteBtn = document.getElementById("igniteBtn");
-            const terminal = document.getElementById("terminal-out");
-            const gridNode = document.getElementById("gridNode");
-
-            gridSlider.addEventListener("input", (e) => {
-                gridLabel.innerText = `Crystal Grid Lattice Constant (a): ${parseFloat(e.target.value).toFixed(3)} nm`;
-            });
-
-            igniteBtn.addEventListener("click", () => {
-                const a = parseFloat(gridSlider.value);
-                appendLog(`[Crystal] Tuning grid constants... Ingesting lattice spacing a = ${a.toFixed(3)} nm`);
-
-                const optimalLattice = 0.543; 
-                const deviation = Math.abs(a - optimalLattice);
-
-                if (deviation < 0.08) {
-                    gridNode.classList.add("stabilized-grid");
-                    gridNode.innerText = "BANDGAP LOCKED";
-                    appendLog(`  âœ“ [Status] Crystal resonance stabilized. Actinide emission channel locked under regularized cutoff.`);
-                } else {
-                    gridNode.classList.remove("stabilized-grid");
-                    gridNode.innerText = "INERT";
-                    appendLog(`  âš ï¸ [Drift Alert] Lattice constants out of alignment bounds. Background scattering active.`);
-                }
-
-                appendLog(`  â†³ Matrix Spectral Radius Invariant: STAGE_4_ADJUDICATE_PASSED`);
-                appendLog(`  â†³ Clamped Hessian Stability Index: Îº(H_shifted) = 18.50 Enforced [source: 0.6.5]`);
-                appendLog(`  â†³ Sandbox Enforced Memory Envelope: 487.12 MiB (0.00% NaN/Inf Divergence) [source: 0.6.5]`);
-                appendLog(`-----------------------------------------------------------------`);
-            });
-
-            function appendLog(msg) {
-                const timestamp = new Date().toISOString().split('T').slice(0, -1);
-                terminal.innerHTML += `<br>[${timestamp}] ${msg}`;
-                terminal.scrollTop = terminal.scrollHeight;
-            }
-        });
-    </script>
-</body>
-</html>
+        .console { flex-grow: 1; background: #010409; border: 1px solid: #30363d; padding: 10px; border-radius: 6px; overflow-y: auto; font-size: 13px; color: #7ee787; }
+        .crystal-chamber { width: 3S²†V–v‡C¢3ƒ²&6¶w&÷VæC¢3C“²&÷&FW#¢‚6öÆ–C¢333c6C²&÷&FW"×&F—W3¢gƒ²F—7Æ“¢fÆWƒ²Æ–vâÖ—FV×3¢6VçFW#²§W7F–g’Ö6öçFVçC¢6VçFW#²Ğ¢ç†÷Föæ–2Öw&–B²v–GFƒ¢g‚²†V–v‡C¢cƒ²&÷&FW#¢'‚6öÆ–C¢333c6C²&6¶w&÷VæC¢&v&ƒ#CÂ3bÂc"Âã“²Ğ¢ç7F&–Æ—¦VBÖw&–B²&÷&FW"Ö6öÆ÷#¢3S†ffc²&6¶w&÷VæC¢&v&ƒƒ‚ÂcbÂ#SRÂãR“²&÷‚×6†F÷s¢#W‚&v&ƒƒ‚ÃcbÃ#SRÃã"“²Ğ¢Â÷7G–ÆSà£Âö†VCà£Æ&öG“à ¢ÆF—b6Æ73Ò'æRÆVgB×æR#à¢Æƒî)¸ff–VÆBƒ¢7F–æ–FRÕ66ÆRææòÕ†÷Föæ–73Âöƒà¢Æƒ#åF&vWB7WFöfc¢&æFvG&ç6×WFF–öâ–æFW‚…ÄÆÖ&FöfÆö÷"ÒãcSb“Âòƒ#à¢Æ‡"7G–ÆSÒ&&÷&FW"Ö6öÆ÷#¢333c6C²#à¢Æƒ3ãR&V†Â‡—6–6ÂW‡W&–ÖVçG3Âöƒ3à¢ÇVÃà¢ÆÆ“ãÇ7G&öæsãâ†Vg’ÔVÆVÖVçB&F–F–öâVÖ—76–öâ6öçG&öÂw&–CÂ÷7G&öæsãÂöÆ“à¢ÆÆ“ãÇ7G&öæsã"â7F–æ–FRfÆVæ6R&æFvÆö6²6†–gFW#Â÷7G&öæsãÂöÆ“à¢ÆÆ“ãÇ7G&öæsã2â†–v‚ÔfÇW‚—6÷F÷R6†ææVÆ–ær&÷VæF–æsÂ÷7G&öæsãÂöÆ“à¢ÆÆ“ãÇ7G&öæsãBâ†÷FòÔf—76–öâ&V6ö–Â7W&W76–öâw&–CÂ÷7G&öæsãÂöÆ“à¢ÆÆ“ãÇ7G&öæsãRâ6÷&R×VÇF’Õ7V7G&ÂW‡F–æ7F–öâÖG&—ƒÂ÷7G&öæsãÂöÆ“à¢Â÷VÃà¢ÆF—b6Æ73Ò&6öçG&öÂÖw&÷W#à¢ÆÆ&VÂ–CÒ&w&–BÖÆ&VÂ#ä7'—7FÂw&–BÆGF–6R6öç7FçB†“¢ãCSæÓÂöÆ&VÃà¢Æ–çWBG—SÒ'&ævR"–CÒ&w&–B×6Æ–FW""Ö–ãÒ#ã#"ÖƒÒ#ãƒ"7FWÒ#ã"fÇVSÒ#ãCS#à¢ÂöF—cà¢Æ'WGFöâ–CÒ&–væ—FT'Fâ#äf—&R†÷Föæ–27'—7FÂVF—CÂö'WGFöãà¢ÂöF—cà ¢ÆF—b6Æ73Ò'æR&–v‡B×æR#à¢Æƒ#ä7F–æ–FR7'—7FÂ6æF&÷ƒÂöƒ#à¢Çä7F—fR†&Gv&R7FFS¢Ç7â7G–ÆSÒ&6öÆ÷#¢3S†ffc²#ä„$BÄô4²fÇC³ÒCƒrã"Ö”"dTä5#Â÷7ããÂ÷à¢ÆF—b6Æ73Ò&7'—7FÂÖ6†Ö&W"#à¢ÆF—b6Æ73Ò'†÷Föæ–2Öw&–B"–CÒ&w&–DæöFR#ãÂöF—cà¢ÂöF—cà¢ÆF—b6Æ73Ò&6öç6öÆR"–CÒ'FW&Ö–æÂÖ÷WB#à¢µ7—7FVĞLofuÒf–VÆB‚7F–æ–FRææòÕ†÷Föæ–726æF&÷‚–æ—F–Æ—¦VBââãÆ'#à¢´ÖWG&–75ÒÖöæ—F÷&–ærCÓ#×2WF÷ö–WF–3¢ë¢„‚’fÇC³Ò‚ãSfW&–f–VBà¢ÂöF—cà¢ÂöF—cà ¢Ç67&—Cà¢Fö7VÖVçBæFDWfVçDÆ—7FVæW"‚$DôÔ6öçFVçDÆöFVB"Â‚’Óâ°¢6öç7B6ÆBÒFö7VÖVçBævWDVÆVÖVçD'”–B‚&w&–B×6Æ–FW""“°¢Æ6öç7BÆ&ÂÒFö7VÖVçBævWDVÆVÖVçBç”–B‚&w&–BÖÆ&VÂ"“°¢6öç7B'FâÒFö7VÖVçBævWDVÆVÖVçBç”–B‚&–væ—FT'Fâ"“°¢6öç7B6öâÒFö7VÖVçBævWDVÆVÖVçD'”–Br'FW&Ö–æÂÖ÷WBr“°¢6öç7BæBÒFö7VÖVçBævWDVÆVÖVçBç”–B‚&w&–DæöFR"“° ¢6ÆBæFDWfVçDÆ—7FVæW"‚&–çWB"Â†R’Óâ°¢Æ&Âæ–ææW%FW‡BÒ7'—7FÂw&–BÆGF–6R6öç7FçB†“¢G·'6TfÆöB†RçF&vWBçfÇVR’çFôf—†VBƒ2—ÒæÖ°¢Ò“°¢'FâæFDWfVçDÆ—7FVæW"‚&6Æ–6²"Â‚’Óâ°¢6öç7BÒ'6TfÆöB‡6ÆBçfÇVR“°¢6öâæ–ç6W%FW‡B³Ò%Æå´7'—7FÅÒGVæ–ærÆGF–6Râââ#°¢–b„ÖF‚æ'2†ÒãSC3’Âã‚’°¢æBæ6Æ74Æ—7BæFB‚'7F&–Æ—¦VBÖw&–B"“°¢6öâæ–ææW$…DÔÂ³Ò#Æ'#â)éÊ7'—7FÂ&W6öææ6R7F&–Æ—¦VBâ#°¢ÒVÇ6R°¢æBæ6Æ74Æ—7Bç&VÖ÷fR‚'7F&–Æ—¦VBÖw&–B"“°¢6öâæ–ææW$…DÔÂ³Ò#Æ'#â)š"ÆGF–6R÷WBöbÆ–væÖVçBâ#°¢Ğ¢6öâæ–ææW%FW‡B³Ò%Æâ(k2ÖG&—‚7V7G&Â&F—W3¢54TEÆâ(k26Æ×VB†W76–ã¢‚ãSÆâ(k2ÖVÖ÷'“¢Cƒrã"Ö”"#°¢Ò“°¢Ò“°¢Â÷67&—Cà£Âö&öG“à£Âö‡FÖÃà 

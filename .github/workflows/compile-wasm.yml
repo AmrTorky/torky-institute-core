@@ -1,5 +1,4 @@
 name: Automated WebAssembly Compilation & Audit Pipeline
-run-name: Assert Quantum Invariants and Boundary Guards
 on:
   push:
     branches: [ main ]

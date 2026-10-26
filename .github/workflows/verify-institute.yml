@@ -1,5 +1,4 @@
 name: Validate Institute Standards Pipeline
-run-name: Execution Matrix for Metrological Invariants
 on:
   push:
     branches: [ main ]

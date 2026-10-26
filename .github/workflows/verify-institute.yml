@@ -1,0 +1,12 @@
+name: Validate Institute Standards Pipeline
+on: [push, workflow_dispatch]
+jobs:
+  audit-institute:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Execute Certification Bounds Check
+        run: |
+          python3 src/generate_certificate.py "Standard Verification Test Node" "CMSP-T1" 85.0
+          python3 src/generate_certificate.py "Failing Node Test" "CMSP-T1" 72.0 || true

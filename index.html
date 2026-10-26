@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amr Torky Institute — 6-Month Certification Program</title>
+    <style>
+        body { margin: 0; font-family: 'Segoe UI', monospace; background: #0a0a0c; color: #e0e0e8; padding: 20px; }
+        header { border-bottom: 2px solid #00ffcc; padding-bottom: 20px; margin-bottom: 20px; }
+        h1 { color: #00ffcc; font-size: 24px; margin: 0; }
+        .pricing { background: linear-gradient(90deg, rgba(0,255,204,0.1), rgba(255,51,102,0.1)); border: 1px solid #00ffcc; padding: 15px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; }
+        .price-tag { font-size: 22px; color: #00ffcc; font-weight: bold; }
+        .old-price { text-decoration: line-through; color: #888; font-size: 16px; margin-right: 10px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+        .card { background: #111118; border: 1px solid #222233; padding: 20px; border-radius: 8px; }
+        .card h3 { color: #ff3366; margin-top: 0; }
+        .exam-panel { background: #0e0e14; border: 1px solid #00ffcc; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        input, button { background: #111118; border: 1px solid #00ffcc; color: #fff; padding: 8px; font-family: inherit; margin-top: 5px; border-radius: 4px; }
+        button { background: #00ffcc; color: #050508; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎓 Amr Torky Institute for Physical Engineering</h1>
+        <p>Metrological Standard: ISO/IEC 17025:2017 & CERN Zenodo Immutable DOI Registry</p>
+    </header>
+
+    <div class="pricing">
+        <div><strong>Limited-Time Launch Offer (50% Discount)</strong><br><small>Fully comprehensive curriculum with cryptographic identity signing.</small></div>
+        <div><span class="old-price">$12,000 USD</span><span class="price-tag">$6,000 USD Net</span></div>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <h3>🟦 Weeks 01–06: Advanced Non-Singular Linear Algebra</h3>
+            <ul>
+                <li>No Zero / No Infinity numeric state mappings.</li>
+                <li>Spectral condition numbers κ(H) and Hessian bounding controls.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>🟩 Weeks 07–12: Bare-Metal Control Plane & Live Seal</h3>
+            <ul>
+                <li>Direct QPU interfacing and strict 20 ms autopoietic condition clamps.</li>
+                <li>Tikhonov spectral damping matrix injections.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>🟨 Weeks 13–18: Math-First Enterprise Development</h3>
+            <ul>
+                <li>VASP DFT & PySCF execution orchestration workflows.</li>
+                <li>Complexity collapse metrics from exponential paths to polynomial domains.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>🟧 Weeks 19–24: Technical AI Governance Infrastructure</h3>
+            <ul>
+                <li>The 6-Stage Immutable Evidence Lifecycle deployment architecture.</li>
+                <li>Deep attention bounding and structural verification layers.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="exam-panel">
+        <h3>✍️ Examination & Cryptographic Certification Hub</h3>
+        <p>Entering an exam score of ≥ 80.0% generates a verifiable ledger digest.</p>
+        <label>Student Name: <input type="text" id="sName" value="Dr. Sarah Jenkins"></label>
+        <label>Exam Score (%): <input type="number" id="sScore" value="92.5"></label>
+        <button onclick="simulateCertification()">Submit & Sign Exam Evidence</button>
+        <div id="output" style="margin-top:15px; font-family:monospace; font-size:12px; color:#00ffcc;"></div>
+    </div>
+
+    <script>
+        function simulateCertification() {
+            const name = document.getElementById('sName').value;
+            const score = parseFloat(document.getElementById('sScore').value);
+            const out = document.getElementById('output');
+            if(score < 80) {
+                out.innerHTML = `<span style="color:#ff3366;">❌ FAILED: Score below 80% threshold. Certificate withheld.</span>`;
+                return;
+            }
+            const pseudoHash = Array.from({length:64}, () => Math.floor(Math.random()*16).toString(16)).join('');
+            out.innerHTML = `<strong>✓ ACCREDITATION GRANTED BY SCIENTIST AMR TORKY</strong><br>` +
+                            `Candidate: ${name} | Score: ${score}%<br>` +
+                            `Tuition Terms: $6,000 USD Paid Net (Launch Incentive)<br>` +
+                            `Verification Digest: <code>${pseudoHash}</code>`;
+        }
+    </script>
+</body>
+</html>

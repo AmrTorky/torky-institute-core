@@ -6,6 +6,12 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
       - name: Execute Certification Bounds Check
         run: |
           python3 src/generate_certificate.py "Standard Verification Test Node" "CMSP-T1" 85.0

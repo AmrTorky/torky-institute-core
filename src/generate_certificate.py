@@ -12,7 +12,7 @@ import sys
 def issue_certificate(student_name, track_id, exam_score):
     if exam_score < 80.0:
         print(f"❌ Accreditation Failed: Score {exam_score:.1f}% is below mandatory 80.0% threshold.")
-        return None
+        sys.exit(1)
 
     cert_data = {
         "institution": "Amr Torky Institute for Advanced Physical Engineering",
@@ -40,7 +40,6 @@ def issue_certificate(student_name, track_id, exam_score):
     print(f"   Graduate: {student_name}")
     print(f"   Track: {track_id}")
     print(f"   SHA-256 Digest: {digest}")
-    print(f"   Saved to: {filename}")
     return digest
 
 if __name__ == "__main__":
